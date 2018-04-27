@@ -6,7 +6,9 @@ var DriverSchema = new mongoose.Schema({
     name: String,
     lat: Number,
     long: Number,
-    available: Boolean
+    available: Boolean,
+    rating: Number,
+    complaint: String,
 })
 
 mongoose.model('Driver', DriverSchema);

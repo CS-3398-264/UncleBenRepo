@@ -10,7 +10,4 @@ app.use('/users', UserController);
 var DriverController = require('./Driver/DriverController');
 app.use('/drivers', DriverController);
 
-var AdminController = require('./Admin/AdminController');
-app.use('/admins', AdminController);
-
 module.exports = app;

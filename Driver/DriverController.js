@@ -13,7 +13,9 @@ router.post('/', function (req, res) {
             name : req.body.name,
             lat: req.body.lat,
             long : req.body.long,
-            available: req.body.available
+            available: req.body.available,
+            rating: req.body.rating,
+            complaint: req.body.complaint
         },
         function (err, user) {
             if (err) return res.status(500).send("There was a problem adding the information to the database.");
@@ -53,5 +55,9 @@ router.delete('/:id', function (req, res) {
         res.status(200).send("Driver "+ user.name +" was deleted.");
     });
 });
+
+// RETURNS ALL THE Drivers IN THE DATABASE who are available
+
+
 
 module.exports = router;
