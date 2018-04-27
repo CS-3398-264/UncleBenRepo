@@ -28,9 +28,19 @@ router.get('/', function (req, res) {
     });
 });
 
+
 //Gets by ID
 router.get('/:id', function (req, res) {
     Driver.findById(req.params.id, function (err, user) {
+        if (err) return res.status(500).send("There was a problem finding the driver.");
+        if (!user) return res.status(404).send("No driver found.");
+        res.status(200).send(user);
+    });
+});
+
+
+router.get('/:available', function (req, res) {
+    Driver.findByAvail(req.params.available, function (err, user) {
         if (err) return res.status(500).send("There was a problem finding the driver.");
         if (!user) return res.status(404).send("No driver found.");
         res.status(200).send(user);
